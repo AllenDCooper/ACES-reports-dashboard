@@ -1,0 +1,614 @@
+/* local CSS file for instructor reports */
+.visually-hidden, .v-h { 
+    position: absolute; 
+    clip: rect(1px 1px 1px 1px); /* for Internet Explorer */ 
+    clip: rect(1px, 1px, 1px, 1px); 
+    padding: 0; 
+    border: 0; 
+    height: 1px; 
+    width: 1px; 
+    overflow: hidden; 
+}
+
+body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+main {
+    display: none;
+}
+
+*:focus {
+    outline: 2px dashed #000 !important;
+}
+
+h1 {
+    margin-left: 15px;
+}
+
+a {
+	color: #2256A0;
+}
+.ui-widget-content a {
+	color: #2256A0;
+}
+
+input.ui-autocomplete-input {
+    font-size: 0.9em;
+}
+
+label:hover {
+    cursor: pointer;
+}
+input[type="radio"]:hover {
+    cursor: pointer;
+}
+label.order {
+    font-weight: bold;
+    display: inline-block;
+    width: 4.5em;
+}
+label.student {
+    font-weight: bold;
+    font-weight: bold;
+    display: inline-block;
+    width: 4.5em;
+}
+input.student_input {
+    width: 14.25em;
+}
+.student_input_wrap {
+    margin-bottom: 0.25em;
+}
+
+#main_tab {
+    padding-left: calc(30% + 22px);
+}
+
+.report_display {
+    margin-top: 1em;
+}
+
+.report_summary_row {
+    display: flex;
+}
+.report_summary_row  + .report_summary_row {
+    margin-top: 1em;
+}
+.report_summary_row .topic {
+    flex-basis: 30%;
+    text-align: right;
+    padding-right: 15px;
+}
+.report_summary_row .results_right {
+    flex-grow: 2;
+    align-self: center;
+    max-width: calc(70% - 15px);
+}
+.report_summary_row > .topic > h4 {
+    text-align: right;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+}   
+
+[aria-hidden="true"] {
+    display: none;
+}
+
+.progress_bar {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.progress_bar[aria-hidden="true"] {
+    display: flex;
+}
+.progress_bar .low {
+    display: inline-block;
+    text-align: center;
+    background-color: red;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 0.25em 0;
+    /*flex-shrink: 1;*/
+}
+.progress_bar .mid {
+    display: inline-block;
+    text-align: center;
+    background-color: #f7d708;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 0.25em 0;
+    /*flex-shrink: 2;*/
+}
+.progress_bar .high {
+    display: inline-block;
+    text-align: center;
+    background-color: #00AD00;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 0.25em 0;
+    /*flex-shrink: 1;*/
+}
+.progress_bar > span {
+    border-radius: 4px 0 0 4px;
+    min-width: 1.5em !important;
+}
+.progress_bar > span + span {
+    border-radius: 0;
+}
+.progress_bar span:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.progress_bar.initial .low {
+    background-color: #FF9E9E;
+}
+.progress_bar.initial .mid {
+    background-color: #FFFF99;
+}
+.progress_bar.initial .high {
+    background-color: #90EE90;
+}
+.progress_bar.progress .low {
+
+}
+.progress_bar.progress .mid {
+
+}
+.progress_bar.progress .high {
+
+}
+
+.percent_bar[aria-hidden="true"] {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 1em;
+}
+.percent_bar .percent {
+    position: absolute;
+    display: flex;
+    height: 1em;
+}
+.percent_bar .increase {
+    left: 50%;
+    width: 50%;
+}
+.percent_bar .decrease {
+    right: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.percent_bar .increase .percentage {
+    background-color: #00AD00;
+    height: 1em;
+    display: inline-block;
+}
+.percent_bar .decrease .percentage {
+    background-color: #ff0000;
+    height: 1em;
+    display: inline-block;
+}
+.percent_bar .number {
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-left: 0.5em;
+}
+.percent_bar .increase .number {
+    /*position: absolute;*/
+}
+.percent_bar .decrease .number {
+    padding-left: 0;
+    padding-right: 0.5em;
+}
+.percent_bar .zero {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+.percent_bar .zero .number {
+
+}
+#change_report_display {
+    position: relative;
+}
+#change_report_display .report_summary_row {
+    position: relative;
+    z-index: 200;
+}
+#change_canvas {
+	position: absolute;
+	top: 0;
+	left: calc(30% + 15px);
+	background: transparent;
+	height: 100%;
+    width: calc(70% - 15px);
+    z-index: 100;
+    display: flex;
+}
+#change_canvas .percentile {
+	height: 100%;
+	display: block;
+	width: 100%;
+	border-right: 1px solid lightgray;
+}
+#change_canvas .percentile:last-child {
+    border-right: 0;
+    background-color: #fff;
+}
+#change_canvas .percentile.inner {
+    flex-basis: 200%;
+}
+
+#change_report_display .report_summary_row:nth-child(2n+1) {
+	background-color: rgba(200, 200, 200, 0.15);
+}
+
+/*
+.zebra .topic, .zebra .percentile {
+    background-color: rgba(200, 200, 200, 0.15);
+}
+*/
+
+.report_display_links {
+    margin-top: 1.5em;
+}
+.report_display a.topic_link [aria-hidden="true"] {
+    display: inline;
+}
+.report_display button.topic_link [aria-hidden="true"] {
+    display: inline;
+}
+button.topic_link {
+    background: transparent;
+    border: 0;
+    text-align: right;
+    color: #2256A0;
+    text-decoration: underline;
+}
+button.topic_link:hover {
+    cursor: pointer;
+}
+/* get rid of ugly outline border FF puts around button text */
+button.topic_link::-moz-focus-inner {
+    border:0;
+}
+.ui-tabs-panel.details_wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+ul.student_details {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+ul.student_details li {
+    width: calc(33% - 4px);
+    overflow: hidden;
+    -webkit-column-gap: 15px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 15px; /* Firefox */
+    column-gap: 15px;
+    padding: 2px;
+}
+ul.student_details li a {
+    white-space: nowrap;
+}
+
+.intro_wrap {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.intro_header {
+    flex-basis: calc(70% - 15px);
+}
+.intro_header fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0 0 1.5em;
+}
+/*
+.intro_header fieldset input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+*/
+.intro_header fieldset label {
+    margin-right: 1.5em;
+}
+.intro_header .input_wrap {
+    /*position: relative;*/
+}
+.intro_header .radio_button {
+    display: inline-block;
+    height: 0.65em;
+    width: 0.65Em;
+    min-height: 6px;
+    min-width: 6px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    margin-right: 0.25em;
+}
+.intro_header .radio_button:hover {
+    background-color: #ccc;
+  }
+.intro_wrap .radio_button.focused {
+    outline: 2px dashed #000;
+}
+/*
+.intro_wrap .radio_button.selected .inner {
+	background-color: #000;
+	height: calc(100% - 0.2em);
+	width: calc(100% - 0.2em);
+	display: inline-block;
+	position: absolute;
+	top: 0.1em;
+	left: 0.1em;
+	border-radius: 50%;
+}
+*/
+.intro_wrap .radio_button.selected {
+    background-color: #0057AD;
+    border-color: #666;
+}
+.intro_wrap input[type="radio"] {
+    margin: 0;
+}
+.input_wrap nobr {
+
+}
+.intro_wrap h3 {
+    flex-basis: calc(30%);
+    margin: 0;
+    font-size: 1em;
+    padding-right: 15px;
+}
+.intro_content {
+    
+}
+.intro_content .intro_content_left {
+    
+}
+.intro_content .report_intro {
+    
+}
+.report_links {
+    display: flex;
+    justify-content: space-between;
+    margin-left: calc(30% + 15px);
+    margin-bottom: 1em;
+}
+.report_links .print_report {
+    padding-left: 1.25em;
+    background-image: url(../images/print_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+    background-size: 1em;
+}
+.report_links .export_ranks, .report_links .export_demo, .report_links .export_data, .report_links .export_comparison_data, .report_links .export_student_ranks, .report_links .export_student_change, .report_links .export_institutional_change {
+    padding-left: 1.25em;
+    background-image: url(../images/download_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+    background-size: 1em;
+}
+
+#hidden_form {
+    display: none;
+}
+
+select {
+    font-size: 0.9em !important;
+}
+
+select.scale {
+    width: 26em;
+}
+.scale_input_wrap {
+    margin-bottom: 0.25em;
+}
+
+.report_intro .num_students {
+    color: #FF0000;
+    font-style: italic;
+}
+
+/* this keeps the Student drop down list clickable */
+ul.ui-autocomplete {
+    z-index: 1000;
+}
+
+[aria-hidden="true"].color_key {
+    display: flex;
+}
+.selection_color_key {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.color_key {
+    flex-direction: column;
+    border: 1px solid rgb(197,197,197);
+    padding: 5px;
+    border-radius: 3px;
+    height: min-content;
+    font-size: 0.8em;
+}
+.color_key span + span {
+    margin-top: 3px;
+}
+.color_key span {
+    white-space: nowrap;
+}
+.color_key span.key::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    margin-right: 0.25em;
+    vertical-align: top;
+}
+
+.color_key_low::before {
+    background-color: red;
+}
+.color_key_moderate::before {
+    background-color: #f7d708;
+}
+.color_key_high::before {
+    background-color: #00AD00;
+}
+.color_key .key_text {
+    margin-bottom: 0.25em;
+}
+.color_key_init_low {
+    padding-left: 0.75em;
+    padding-right: 2.4em;
+}
+.color_key_init_moderate {
+    padding-left: 0.75em;
+    padding-right: 2.4em;
+}
+.color_key_init_high {
+    padding-left: 0.75em;
+    padding-right: 2.4em;
+}
+.color_key_init_low::before {
+    background-color: #FF9E9E;
+}
+.color_key_init_moderate::before {
+    background-color: #FFFF99;
+}
+.color_key_init_high::before {
+    background-color: #90EE90;
+}
+.color_key .initial_text {
+    padding-right: 0.5em;
+}
+.color_key .progress_text {
+    padding-right: 4em;
+}
+.color_key .double .key:last-child::before {
+    margin-right: 1.5em;
+}
+
+.ui-widget-content {
+    color: #000 !important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    background-color: #0057AD
+}
+
+#please_wait {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 10em);
+}
+#please_wait #dots {
+    font-weight: bold;
+}
+
+#abort {
+    margin-left: 15px;
+}
+
+@media (max-width: 52em) {
+    /*
+    body {
+        background-color: lightgray;
+    }
+    */
+    .report_summary_row {
+        flex-direction: column;
+    }
+    .report_summary_row .topic {
+        text-align: left;
+        padding-bottom: 0.25em;
+    }
+    .report_summary_row .results_right {
+        align-self: normal;
+    }
+    .report_summary_row > .topic > h4 {
+        text-align: left;
+    }
+    .report_display {
+        margin-top: 1.5em;
+    }
+    .intro_wrap {
+        display: block;
+    }
+    .intro_wrap h3 {
+        margin-top: 1.5em;
+    }
+    #main_tab {
+        padding-left: 1.4em;
+        padding-right: 1.4em;
+    }
+    .intro_content {
+        display: block;
+    }
+    .report_links {
+        margin-left: 0;
+    }
+    
+}
+
+@media (max-width: 36em) {
+
+    ul.student_details li {
+        width: calc(50% - 4px);
+    }
+    .report_links {
+        flex-direction: column;
+    }
+    .report_links > a + a {
+        margin-top: 0.5em;
+    }
+    .selection_color_key {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    [aria-hidden="true"].color_key {
+        width: min-content;
+        margin-top: 1.5em;
+    }
+}
+
+@media (max-width: 30em) {
+
+    .progress_bar .percent_sign {
+        display: none;
+    }
+    .progress_bar > span {
+        min-width: 1em !important;
+    }
+    .report_links a {
+        padding-left: 0 !important;
+        background-image: none !important;
+    }
+
+}
+
+@media (max-width: 26em) {
+    
+    ul.student_details li {
+        width: 100%;
+    }
+}
