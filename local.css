@@ -515,6 +515,12 @@ ul.ui-autocomplete {
     background-color: #0057AD
 }
 
+.sans-pro-header {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: gray;
+  font-size: 2rem;
+}
+
 #please_wait {
     display: block;
     position: absolute;
