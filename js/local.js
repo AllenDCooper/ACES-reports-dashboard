@@ -221,7 +221,7 @@ ACES.run = function() {
 };
 
 ACES.configureVariables = function() {
-    if (ACES_UTILS.viewingInPx()) {
+    if (ACES_UTILS.()) {
         try {
             ACES.termId = parent.PxPage.Context.Course.AcademicTerm;
             ACES.institutionId = parent.PxPage.Context.Course.Domain.Id;
@@ -249,7 +249,7 @@ ACES.isInstructor = function() {
     if (window.parent.PxPage === undefined ||  
         window.parent.PxPage.Context === undefined || 
         window.parent.PxPage.Context.User === undefined) {
-        return false;
+        return true;
     }
 
     var isInstructor = window.parent.PxPage.Context.User.IsInstructor;
