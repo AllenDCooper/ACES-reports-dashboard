@@ -193,10 +193,10 @@ ACES.run = function() {
     $('main').css('display', 'none');
 
     // check that this is the instructor
-    if (ACES_UTILS.viewingInPx() && !ACES.isInstructor()) {
-        ACES.abort("Sorry, only the instructor for this course may open this activity.");
-        return;
-    }   
+    // if (ACES_UTILS.viewingInPx() && !ACES.isInstructor()) {
+    //     ACES.abort("Sorry, only the instructor for this course may open this activity.");
+    //     return;
+    // }   
 
     // if (!ACES.configureVariables()) {
     //     ACES.abort("Sorry, we are having issues configuring your reports at the moment. Please try again later.");
