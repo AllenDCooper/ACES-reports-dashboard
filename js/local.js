@@ -193,15 +193,15 @@ ACES.run = function() {
     $('main').css('display', 'none');
 
     // check that this is the instructor
-    // if (ACES_UTILS.viewingInPx() && !ACES.isInstructor()) {
-    //     ACES.abort("Sorry, only the instructor for this course may open this activity.");
-    //     return;
-    // }   
+    if (ACES_UTILS.viewingInPx() && !ACES.isInstructor()) {
+        ACES.abort("Sorry, only the instructor for this course may open this activity.");
+        return;
+    }   
 
-    // if (!ACES.configureVariables()) {
-    //     ACES.abort("Sorry, we are having issues configuring your reports at the moment. Please try again later.");
-    //     return;
-    // }
+    if (!ACES.configureVariables()) {
+        ACES.abort("Sorry, we are having issues configuring your reports at the moment. Please try again later.");
+        return;
+    }
 
     ACES.aria_speech('Please wait while your course data is loading.');
 
@@ -221,26 +221,26 @@ ACES.run = function() {
 };
 
 ACES.configureVariables = function() {
-    // if (ACES_UTILS.viewingInPx()) {
-    //     try {
-    //         ACES.termId = parent.PxPage.Context.Course.AcademicTerm;
-    //         ACES.institutionId = parent.PxPage.Context.Course.Domain.Id;
-    //         if (ACES.termId === undefined) {
-    //             throw new Error('TermId is undefined');
-    //         }
-    //         if (ACES.institutionId === undefined) {
-    //             throw new Error('InstitutionId is undefined');
-    //         }
-    //     }
-    //     catch(err) {
-    //         console.log(err.message);
-    //         return false;
-    //     }
-    // }
-    // else {
-    //     ACES.termId = "Spring 2019";
-    //     ACES.institutionId = "9999";
-    // }
+    if (ACES_UTILS.()) {
+        try {
+            ACES.termId = parent.PxPage.Context.Course.AcademicTerm;
+            ACES.institutionId = parent.PxPage.Context.Course.Domain.Id;
+            if (ACES.termId === undefined) {
+                throw new Error('TermId is undefined');
+            }
+            if (ACES.institutionId === undefined) {
+                throw new Error('InstitutionId is undefined');
+            }
+        }
+        catch(err) {
+            console.log(err.message);
+            return false;
+        }
+    }
+    else {
+        ACES.termId = "Spring 2019";
+        ACES.institutionId = "9999";
+    }
     return true;
 };
 
