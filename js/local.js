@@ -198,10 +198,10 @@ ACES.run = function() {
         return;
     }   
 
-    if (!ACES.configureVariables()) {
-        ACES.abort("Sorry, we are having issues configuring your reports at the moment. Please try again later.");
-        return;
-    }
+    // if (!ACES.configureVariables()) {
+    //     ACES.abort("Sorry, we are having issues configuring your reports at the moment. Please try again later.");
+    //     return;
+    // }
 
     ACES.aria_speech('Please wait while your course data is loading.');
 
@@ -221,7 +221,7 @@ ACES.run = function() {
 };
 
 ACES.configureVariables = function() {
-    if (ACES_UTILS.()) {
+    if (ACES_UTILS.viewingInPx()) {
         try {
             ACES.termId = parent.PxPage.Context.Course.AcademicTerm;
             ACES.institutionId = parent.PxPage.Context.Course.Domain.Id;
