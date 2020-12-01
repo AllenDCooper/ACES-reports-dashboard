@@ -221,26 +221,26 @@ ACES.run = function() {
 };
 
 ACES.configureVariables = function() {
-    if (ACES_UTILS.viewingInPx()) {
-        try {
-            ACES.termId = parent.PxPage.Context.Course.AcademicTerm;
-            ACES.institutionId = parent.PxPage.Context.Course.Domain.Id;
-            if (ACES.termId === undefined) {
-                throw new Error('TermId is undefined');
-            }
-            if (ACES.institutionId === undefined) {
-                throw new Error('InstitutionId is undefined');
-            }
-        }
-        catch(err) {
-            console.log(err.message);
-            return false;
-        }
-    }
-    else {
-        ACES.termId = "Spring 2019";
-        ACES.institutionId = "9999";
-    }
+    // if (ACES_UTILS.viewingInPx()) {
+    //     try {
+    //         ACES.termId = parent.PxPage.Context.Course.AcademicTerm;
+    //         ACES.institutionId = parent.PxPage.Context.Course.Domain.Id;
+    //         if (ACES.termId === undefined) {
+    //             throw new Error('TermId is undefined');
+    //         }
+    //         if (ACES.institutionId === undefined) {
+    //             throw new Error('InstitutionId is undefined');
+    //         }
+    //     }
+    //     catch(err) {
+    //         console.log(err.message);
+    //         return false;
+    //     }
+    // }
+    // else {
+    //     ACES.termId = "Spring 2019";
+    //     ACES.institutionId = "9999";
+    // }
     return true;
 };
 
