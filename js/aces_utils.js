@@ -52,9 +52,9 @@ ACES_UTILS.clean_name_csv = function(name) {
 }
 
 ACES_UTILS.viewingInPx = function() {
-    if (typeof window.parent === 'undefined' ||
-            typeof window.parent.PX === 'undefined') {
-            return true;
-        }
+    // if (typeof window.parent === 'undefined' ||
+    //         typeof window.parent.PX === 'undefined') {
+    //         return true;
+    //     }
         return true;
 }
